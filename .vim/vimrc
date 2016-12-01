@@ -63,3 +63,5 @@ colorscheme monokai
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+"Avoid enter in Replace mode from a double <Insert>
+imap <Insert> <Nop>
