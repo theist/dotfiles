@@ -1,0 +1,37 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'altercation/vim-colors-solarized'
+Plug 'mhinz/vim-signify'
+Plug 'valloric/youcompleteme'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-terraform'
+
+call plug#end()
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code  indentation
+let g:NERDDefaultAlign = 'left'
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1" Enable trimming of trailing whitespace
+
+
+" TODO do some fugitive config
+let g:solarized_termcolors=256
+
+syntax enable
+set background=dark
+colorscheme solarized
+
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
