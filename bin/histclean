@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+ari = File.open("./.bash_history").readlines.reverse.map{ |x| x.chomp } 
+
+newari = []
+
+ari.each do |line|
+  next if line =~ /^j /
+  next if line =~ /^cd /
+  next if line =~ /^cp /
+  next if line =~ /^mv /
+  next if line =~ /^ack /
+  next if line =~ /^sudo shutdown/
+  next if line =~ /^ncdu /
+  next if line =~ /^vim /
+  next if line =~ /^ping /
+  next if line =~ /^dig /
+  next if line =~ /^host /
+  next if line =~ /^git pu/
+  next if line =~ /^git ci /
+  next if line =~ /^git add /
+  next if line =~ /^gcd /
+  next if line =~ /^clear /
+  next if line =~ /^ls /
+  next if line =~ /^rm /
+  next if line =~ /^pry/
+  next if line =~ /^git co /
+  next if line =~ /^sudo apt-get /
+  next if line =~ /^docker rm /
+  next if line =~ /^docker rmi /
+  newari.unshift(line) unless newari.index(line)
+end
+
+newari.each do |line|
+  puts line
+end

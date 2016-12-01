@@ -1,0 +1,2 @@
+#!/bin/bash
+AS=ubuntu bundle exec cap production lazy_templates:get ROLE=app FILE=${1}

@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+#
+require "json"
+require "base64"
+
+group =  ARGV.shift
+
+file = "/tmp/skel" + (rand * 1000).to_i.to_s
+
+asg = JSON.parse(`aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names #{group} --query "AutoScalingGroups[].{name:AutoScalingGroupName,lc:LaunchConfigurationName,tags:Tags[].{Key:Key,Value:Value}}"`)[0]
+
+if not asg
+  puts "no output for ASG #{group}"
+  table = `aws autoscaling describe-auto-scaling-groups --query "AutoScalingGroups[].{asg:AutoScalingGroupName,lc:LaunchConfigurationName,servers:DesiredCapacity}"  --output table
+  `
+  if table
+    puts "Try one of these"
+    puts table
+  else
+    puts "There aren't any asgs"
+  end
+  exit 1
+end
+
+lc = JSON.parse(`aws autoscaling describe-launch-configurations --launch-configuration-names #{asg['lc']}`)["LaunchConfigurations"][0]
+
+if not lc
+  puts "no output for LC #{asg['lc']}}"
+  exit 1
+end
+
+skel = JSON.parse(`aws ec2 run-instances --generate-cli-skeleton`)
+
+%w(InstanceType ImageId SecurityGroups SecurityGroups EbsOptimized KeyName).each do |key|
+  skel[key] = lc[key]
+end
+
+%w(MinCount MaxCount SecurityGroupIds Placement KernelId RamdiskId BlockDeviceMappings InstanceInitiatedShutdownBehavior PrivateIpAddress ClientToken AdditionalInfo NetworkInterfaces SubnetId).each do |key|
+  skel.delete(key)
+end
+
+skel["UserData"] = Base64.decode64(lc['UserData'])
+
+skel["IamInstanceProfile"].delete("Name")
+skel["IamInstanceProfile"]["Arn"] = lc["IamInstanceProfile"]
+
+f = open(file,"w")
+f.write(JSON.pretty_generate(skel))
+f.close
+
+system("vim #{file}")
+
+to_tag = `aws ec2 run-instances --cli-input-json file://#{file} --query "Instances[].InstanceId" --output text`
+
+to_tag.chomp!
+
+asg["tags"].each do |tag|
+  system("aws ec2 create-tags --resources #{to_tag} --tags Key=#{tag["Key"]},Value=#{tag["Value"]}")
+end
+
+system("aws ec2 describe-instances --instance-ids #{to_tag} --query \"Reservations[].Instances[].PublicIpAddress\" --output text")

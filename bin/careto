@@ -1,0 +1,4 @@
+#!/bin/bash
+vlc v4l2:///dev/video0 --qt-minimal-view --crop 4:3 &
+google-chrome --new-window --app="$PRESENTATION_URL" &
+

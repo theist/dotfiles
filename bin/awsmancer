@@ -1,0 +1,67 @@
+#!/usr/bin/env perl
+
+use strict;
+use JSON::XS;
+use File::Temp;
+
+
+my $command = shift;
+my $subcommand = shift;
+
+my $editor = $ENV{EDITOR} || 'vim';
+
+sub edit_string {
+  my $text = shift;
+  my $f = new File::Temp(SUFFIX => '.json');
+  my $name = $f->filename;
+  print $f $text;
+  $f->close();
+  system($editor, $name);
+  open $f, '<', $name or die "I/O error on tempfile";
+
+  $text = join("",<$f>);
+  close $f;
+  return $text;
+}
+
+sub clean_skel {
+  my $text;
+  unless ($text = `aws $command $subcommand --generate-cli-skeleton`) {
+    die "operation not recognized $command $subcommand\n";
+  }
+  return $text;
+}
+
+# Get Skeleton
+
+my $skeleton = clean_skel();
+
+my $continue = 0;
+my $json;
+
+#Edit Skeleton
+until($continue) {
+  $skeleton = edit_string($skeleton);
+  eval {$json = JSON::XS->new->decode($skeleton)}; warn $@ if $@;
+  if ($json) {
+    $continue = 1;
+  } else {
+    print $skeleton;
+    print "\n\nyour file does not validate json\n";
+    my $input = 0;
+    until($input){
+      print "(e)dit,(c)lean and edit,(q)uit > ";
+      my $i;
+      chomp($i = <STDIN>);
+      if    ($i =~ /^e(dit)?/)   { $input = 1; }
+      elsif ($i =~ /^c(lean)?/)  { $skeleton = clean_skel(); $input = 1; }
+      elsif ($i =~ /^q(uit)?/)   { die "bye!"; }
+      else                       { $input = 0; }
+    }
+  }
+}
+#until validates json
+
+print "Executing: aws $command $subcommand --cli-input-json '". JSON::XS->new->encode($json)."'\n";
+
+system("aws $command $subcommand --cli-input-json '". JSON::XS->new->encode($json)."'\n")
