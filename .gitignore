@@ -1,0 +1,10 @@
+#Vim swap files
+.*.sw?
+make.sh
+TEST
+.rbenv-gemsets
+.ruby-version
+.vagrant
+emacs.d/
+tags
+.atom*
