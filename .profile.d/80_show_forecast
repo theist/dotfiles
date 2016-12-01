@@ -1,0 +1,2 @@
+if [[ -r /tmp/forecast ]]; then cat /tmp/forecast; fi
+echo ""

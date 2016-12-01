@@ -1,0 +1,5 @@
+alias gcd='cd $(git rev-parse --show-toplevel)'
+alias c='bundle exec cap'
+alias cs='SHOWLOG=1 bundle exec cap'
+alias cu='AS=ubuntu bundle exec cap'
+alias csu='AS=ubuntu SHOWLOG=1 bundle exec cap'

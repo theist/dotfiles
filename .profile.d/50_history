@@ -1,0 +1,5 @@
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+export HISTIGNORE="exit:clear:ls:t update:twitter_check:t favorite:t timeline:mv:cd:vim:j:rm"
