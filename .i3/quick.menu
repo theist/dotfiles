@@ -1,0 +1,34 @@
+google-chrome:google-chrome
+skype:skype
+pidgin:pidgin
+dropbox:dropbox start
+nagios:nagstamon
+hamster:hamster-time-tracker
+ftp:filezilla
+vbox:virtualbox
+synergy:quicksynergy
+capture!:gnome-screenshot --interactive
+eog:gthumb .
+firefox:firefox
+rdp:remmina
+slack:slack
+vlc:vlc
+vim:gvim
+kazam:kazam
+emacs:emacs
+quake3:ioquake3
+quake1:quakespasm -basedir /usr/share/games/quake
+tray:stalonetray
+jk2:/opt/jk2/jk2sp
+wolf:/home/carlos/.wolf/wolfsp
+starbound:starbound
+nm-applet:nm-applet
+add-commands:gvim /home/carlos/.i3/quick.menu
+xlock:i3lock -c 000000 -i /home/carlos/lock.png
+suspend:systemctl suspend
+files:thunar .
+keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
+mixer:pavucontrol
+irc:hexchat
+torrent:transmission-gtk
+careto:/home/carlos/bin/careto
