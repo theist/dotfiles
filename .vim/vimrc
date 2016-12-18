@@ -12,6 +12,7 @@ Plug 'hashivim/vim-terraform'
 call plug#end()
 
 set nocompatible
+set t_Co=256
 syntax enable
 syntax on
 filetype plugin indent on
