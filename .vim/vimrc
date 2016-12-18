@@ -8,6 +8,7 @@ Plug 'mhinz/vim-signify'
 Plug 'valloric/youcompleteme'
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform'
+Plug 'dietsche/vim-lastplace'
 
 call plug#end()
 
@@ -58,6 +59,8 @@ let g:NERDDefaultAlign = 'left'
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1" Enable trimming of trailing whitespace
 
+" Last Place ignore git files
+let g:lastplace_ignore = "gitcommit,gitrebase"
 
 " TODO do some fugitive config
 
