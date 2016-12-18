@@ -17,29 +17,27 @@ syntax enable
 syntax on
 filetype plugin indent on
 
-set showcmd " Show (partial) command in status line.
-set showmatch " Show matching brackets.
-set ignorecase " Do case insensitive matching
-set smartcase " Do smart case matching
-set incsearch " Incremental search
+set autoindent
 set autowrite " Automatically save before commands like :next and :make
+set cindent
+set expandtab
 set hidden " Hide buffers when they are abandoned
 set history=1000
-set cindent
-set tabstop=2 " By default 4 indent spaces
-set shiftwidth=2 " By default 4 indent spaces
-set number " linenumber
-set shiftround
-set expandtab
-set autoindent
-set title
-set scrolloff=4 " Keep 4 lines above and below cursor
-set laststatus=2
-
-set smarttab
-set ruler
 set hlsearch " highlight results of a search
-
+set ignorecase " Do case insensitive matching
+set incsearch " Incremental search
+set laststatus=2
+set number " linenumber
+set ruler
+set scrolloff=4 " Keep 4 lines above and below cursor
+set shiftround
+set shiftwidth=2 " By default 4 indent spaces
+set showcmd " Show (partial) command in status line.
+set showmatch " Show matching brackets.
+set smartcase " Do smart case matching
+set smarttab
+set tabstop=2 " By default 4 indent spaces
+set title
 
 
 " Add spaces after comment delimiters by default
