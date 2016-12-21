@@ -9,6 +9,7 @@ Plug 'valloric/youcompleteme'
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform'
 Plug 'dietsche/vim-lastplace'
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()
 
@@ -61,6 +62,18 @@ let g:NERDTrimTrailingWhitespace = 1" Enable trimming of trailing whitespace
 
 " Last Place ignore git files
 let g:lastplace_ignore = "gitcommit,gitrebase"
+
+" ansible config
+
+let g:ansible_extra_syntaxes = "sh.vim"
+
+let g:ansible_attribute_highlight = "a"
+
+let g:ansible_name_highlight = 'd'
+
+let g:ansible_extra_keywords_highlight = 1
+
+
 
 " TODO do some fugitive config
 
