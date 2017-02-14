@@ -31,4 +31,5 @@ keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:pavucontrol
 irc:hexchat
 torrent:transmission-gtk
+android_studio:/opt/android-studio/bin/studio.sh
 careto:/home/carlos/bin/careto
