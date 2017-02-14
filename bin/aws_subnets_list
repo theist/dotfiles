@@ -1,0 +1,2 @@
+#!/bin/bash
+aws ec2 describe-subnets --query "Subnets[].{vpc:VpcId, name:Tags[?Key=='Name'].Value | [0],publicip:MapPublicIpOnLaunch, zone:AvailabilityZone, id:SubnetId, cidr:CidrBlock}"  --output table
