@@ -13,6 +13,8 @@ shopt -s checkwinsize
 alias twitter_check='cd; t timeline -n 200 -l -r -s `tail .timeline -n 1 | cut -d" " -f1` >> .timeline ; sleep 1; /usr/sbin/logtail .timeline; cd -'
 
 
+export PATH=/home/carlos/.fzf/bin:/home/carlos/.rbenv/shims:/home/carlos/.rbenv/bin:/home/carlos/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/carlos/go/bin:/usr/local/go/bin
+
 if [ -d "$HOME/.profile.d" ]; then
     for snippet in $HOME/.profile.d/*; do
         . $snippet
@@ -22,8 +24,6 @@ fi
 export FZF_DEFAULT_OPTS=-e
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export GOPATH=/home/carlos/go
-export PATH=/home/carlos/.fzf/bin:/home/carlos/.rbenv/shims:/home/carlos/.rbenv/bin:/home/carlos/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/carlos/go/bin:/usr/local/go/bin
-
 
 complete -C /home/carlos/bin/cap.rb -o default cap
 . $HOME/.asdf/asdf.sh
