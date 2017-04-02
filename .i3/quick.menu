@@ -33,3 +33,4 @@ irc:hexchat
 torrent:transmission-gtk
 android_studio:/opt/android-studio/bin/studio.sh
 careto:/home/carlos/bin/careto
+snes:zsnes
