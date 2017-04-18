@@ -45,3 +45,5 @@ fi
 export ANSIBLE_INVENTORY=~/ansible_hosts
 export GCE_ACCOUNT_FILE=~/.gce_credentials.json
 export TF_VAR_GCE_ACCOUNT_FILE=~/.gce_credentials.json
+
+alias gam="/home/carlos/bin/gam/gam"
