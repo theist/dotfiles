@@ -1,0 +1,9 @@
+#!/usr/bin/env perl 
+use File::Slurp;
+
+$file = shift();
+
+my $text = read_file($file);
+
+print "$_:\n" for $text =~ /\s*\{\{\s*([^}\s]+)\s*}}/g;
+

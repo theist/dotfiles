@@ -1,2 +1,2 @@
 #!/bin/bash
-aws ec2 describe-instances --query "Reservations[].Instances[].{type:InstanceType,ip:PublicIpAddress,name:Tags[?Key=='Name'].Value | [0],project:Tags[?Key=='Project'].Value | [0],role:Tags[?Key=='Roles'].Value | [0], stage:Tags[?Key=='Stages'].Value | [0]}" --output table
+aws ec2 describe-instances --query "Reservations[].Instances[].{id:InstanceId,type:InstanceType,ip:PublicIpAddress,name:Tags[?Key=='Name'].Value | [0],project:Tags[?Key=='Project'].Value | [0],role:Tags[?Key=='Roles'].Value | [0], stage:Tags[?Key=='Stages'].Value | [0]}" --output table
