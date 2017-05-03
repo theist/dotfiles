@@ -1,0 +1,2 @@
+#!/bin/bash
+aws route53 list-hosted-zones-by-name  --query='HostedZones[].{id:Id, name:Name, records:ResourceRecordSetCount, internal:Config.PrivateZone}' --output table
