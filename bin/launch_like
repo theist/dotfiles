@@ -35,7 +35,7 @@ skel = JSON.parse(`aws ec2 run-instances --generate-cli-skeleton`)
   skel[key] = lc[key]
 end
 
-%w(MinCount MaxCount SecurityGroupIds Placement KernelId RamdiskId BlockDeviceMappings InstanceInitiatedShutdownBehavior PrivateIpAddress ClientToken AdditionalInfo NetworkInterfaces SubnetId).each do |key|
+%w(MinCount MaxCount SecurityGroupIds Placement KernelId RamdiskId BlockDeviceMappings InstanceInitiatedShutdownBehavior PrivateIpAddress ClientToken AdditionalInfo NetworkInterfaces SubnetId Ipv6AddressCount Ipv6Addresses).each do |key|
   skel.delete(key)
 end
 
