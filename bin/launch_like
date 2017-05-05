@@ -31,18 +31,20 @@ end
 
 skel = JSON.parse(`aws ec2 run-instances --generate-cli-skeleton`)
 
-%w(InstanceType ImageId SecurityGroups SecurityGroups EbsOptimized KeyName).each do |key|
+%w(InstanceType ImageId SecurityGroups EbsOptimized KeyName).each do |key|
   skel[key] = lc[key]
 end
 
-%w(MinCount MaxCount SecurityGroupIds Placement KernelId RamdiskId BlockDeviceMappings InstanceInitiatedShutdownBehavior PrivateIpAddress ClientToken AdditionalInfo NetworkInterfaces SubnetId Ipv6AddressCount Ipv6Addresses).each do |key|
+%w(MinCount MaxCount Placement SecurityGroupIds KernelId RamdiskId BlockDeviceMappings InstanceInitiatedShutdownBehavior PrivateIpAddress ClientToken AdditionalInfo NetworkInterfaces SubnetId Ipv6AddressCount Ipv6Addresses).each do |key|
   skel.delete(key)
 end
+
+skel["SecurityGroupIds"] = skel.delete("SecurityGroups")
 
 skel["UserData"] = Base64.decode64(lc['UserData'])
 
 skel["IamInstanceProfile"].delete("Name")
-skel["IamInstanceProfile"]["Arn"] = lc["IamInstanceProfile"]
+skel["IamInstanceProfile"]["Name"] = lc["IamInstanceProfile"]
 
 f = open(file,"w")
 f.write(JSON.pretty_generate(skel))
