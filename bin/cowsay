@@ -1,0 +1,3 @@
+#!/bin/bash
+params=$(echo $@ | sed 's/-W 60 -f default//')
+docker run --rm theist/ponysay ponysay $params
