@@ -15,6 +15,7 @@ slack:slack
 vlc:vlc
 vim:gvim
 kazam:kazam
+zeal:zeal
 emacs:emacs
 quake3:ioquake3
 quake1:quakespasm -basedir /usr/share/games/quake
