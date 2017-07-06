@@ -16,7 +16,7 @@
 	yolo = !git commit -m \"fixup $(curl -s whatthecommit.com/index.txt)\"
 
 [core]
-	excludesfile = /home/carlos/.gitignore
+	excludesfile = /home/carlos/.gitignore-global
 [color]
 	ui = true
 [branch]
