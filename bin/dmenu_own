@@ -1,0 +1,11 @@
+#!/bin/bash
+DMENU='dmenu -b'
+MENU_FILE=${HOME}/.i3/quick.menu
+
+SELECTED=`cat ${MENU_FILE} | cut -d: -f1 | ${DMENU}`
+
+COMMAND=`cat ${MENU_FILE} | grep -e ^${SELECTED}: | cut -f2 -d:`
+
+echo "'${COMMAND}'"
+
+eval "${COMMAND}"

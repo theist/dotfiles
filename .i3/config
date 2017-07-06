@@ -89,7 +89,7 @@ bindsym $mod+e layout default
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space exec /usr/local/bin/dmenu_own
+bindsym $mod+space exec /home/carlos/bin/dmenu_own
 #bindsym $mod+Alt+space exec /usr/local/bin/dmenu_media
 
 # focus the parent container
