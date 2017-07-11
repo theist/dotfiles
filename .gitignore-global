@@ -11,3 +11,4 @@ tags
 .vscode*
 .#*
 TODOs.org
+.kitchen.list.yml
