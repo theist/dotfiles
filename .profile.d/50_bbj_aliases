@@ -1,0 +1,3 @@
+alias gcd='cd $(git rev-parse --show-toplevel)'
+alias c='bundle exec cap'
+alias k='bundle exec kitchen'
