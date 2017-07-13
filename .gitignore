@@ -1,2 +1,5 @@
 # exclude everithing
 *
+# include non pw common script places
+!bin/
+!.profile.d/
