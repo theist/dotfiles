@@ -20,7 +20,7 @@ xlock:i3lock -c 000000 -i /home/carlos/lock.png
 suspend:systemctl suspend
 files:thunar .
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
-mixer:pavucontrol
+mixer:gnome-control-center sound
 torrent:transmission-gtk
 careto:/home/carlos/bin/careto
 snes:zsnes
