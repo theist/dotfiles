@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'json'
+require 'pp'
+
+file = ARGV.shift
+
+pp JSON.load_file(file)

@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require 'pp'
+
+file = ARGV.shift
+
+pp YAML.load_file(file)
