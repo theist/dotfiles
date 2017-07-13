@@ -36,7 +36,7 @@ bind 179 exec /usr/local/bin/e /usr/local/bin/music
 
 
 # start a terminal
-bind $mod+36 exec /usr/bin/gnome-terminal
+bind $mod+36 exec /usr/bin/terminator
 bind $mod+Shift+36 exec /usr/bin/i3-input -F 'exec %s' -P 'LCARS Run:  ' -f 'pango:Star Trek Enterprise Future 42px'
 
 # kill focused window
