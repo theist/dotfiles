@@ -199,6 +199,6 @@ for_window [class="Vlc"] sticky enable
 #############################################################
 # DELETE THE FOLLOWING LINES TO DISABLE THE WELCOME MESSAGE #
 #############################################################
-exec xcompmgr -c -f -n
+#exec xcompmgr -c -f -n
 exec dunst
 exec nitrogen --restore
