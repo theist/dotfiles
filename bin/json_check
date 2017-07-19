@@ -4,4 +4,4 @@ require 'pp'
 
 file = ARGV.shift
 
-pp JSON.load_file(file)
+pp JSON.load(File.new(file).read)
