@@ -90,3 +90,6 @@ set omnifunc=syntaxcomplete#Complete
 
 "Avoid enter in Replace mode from a double <Insert>
 imap <Insert> <Nop>
+
+"Enforce Python interpreter
+let g:ycm_server_python_interpreter = "/usr/bin/python"
