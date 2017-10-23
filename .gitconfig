@@ -17,6 +17,7 @@
 
 [core]
 	excludesfile = /home/carlos/.gitignore-global
+	pager = less -r
 [color]
 	ui = true
 [branch]
