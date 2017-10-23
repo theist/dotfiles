@@ -6,4 +6,4 @@ export PATH=$PATH:/opt/Android/
 export PATH=$PATH:/opt/Android/tools
 export PATH=$PATH:/opt/Android/platform-tools
 export PATH=$PATH:/opt/Android/build-tools
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
