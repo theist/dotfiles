@@ -26,3 +26,4 @@ careto:/home/carlos/bin/careto
 snes:zsnes
 minecraft:minecraft
 fotos:shotwell
+exit:i3-msg exit
