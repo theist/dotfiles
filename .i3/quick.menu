@@ -2,6 +2,8 @@ google-chrome:google-chrome
 zoom:zoom
 dropbox:dropbox start
 hamster:hamster-time-tracker
+franz:/usr/local/bin/franz
+evernote:nixnote2
 ftp:filezilla
 vbox:virtualbox
 synergy:quicksynergy
