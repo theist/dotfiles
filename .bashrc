@@ -32,18 +32,14 @@ complete -C /home/carlos/bin/cap.rb -o default cap
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /home/carlos/opt/google-cloud-sdk/path.bash.inc ]; then
-  source '/home/carlos/opt/google-cloud-sdk/path.bash.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /home/carlos/opt/google-cloud-sdk/completion.bash.inc ]; then
-  source '/home/carlos/opt/google-cloud-sdk/completion.bash.inc'
-fi
-
 export ANSIBLE_INVENTORY=~/ansible_hosts
 export GCE_ACCOUNT_FILE=~/.gce_credentials.json
 export TF_VAR_GCE_ACCOUNT_FILE=~/.gce_credentials.json
 
 alias gam="/home/carlos/bin/gam/gam"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/carlos/google-cloud-sdk/path.bash.inc' ]; then source '/home/carlos/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/carlos/google-cloud-sdk/completion.bash.inc' ]; then source '/home/carlos/google-cloud-sdk/completion.bash.inc'; fi
