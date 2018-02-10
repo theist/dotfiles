@@ -28,6 +28,12 @@ ari.each do |line|
   next if line =~ /^sudo apt-get /
   next if line =~ /^docker rm /
   next if line =~ /^docker rmi /
+  next if line =~ /^docker kill /
+  next if line =~ /^kubectl logs /
+  next if line =~ /^kubectl exec /
+  next if line =~ /^git revert /
+  next if line =~ /^bj release feature /
+  next if line =~ /^bj release bugfix /
   newari.unshift(line) unless newari.index(line)
 end
 
