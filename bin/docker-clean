@@ -1,2 +1,15 @@
 #!/bin/sh
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock zzrot/docker-clean $@
+echo "== Prune containers =="
+docker container prune -f
+
+echo "== Prune volumes =="
+docker volume prune -f
+
+echo "== Prune networks =="
+docker network prune -f
+
+echo "== Prune images =="
+docker image prune -f
+
+echo "== Remaining Tagged Images: =="
+docker image ls --format "{{.Repository}}:{{.Tag}}"
