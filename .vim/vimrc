@@ -12,6 +12,7 @@ Plug 'dietsche/vim-lastplace'
 Plug 'pearofducks/ansible-vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
@@ -94,3 +95,9 @@ imap <Insert> <Nop>
 
 "Enforce Python interpreter
 let g:ycm_server_python_interpreter = "/usr/bin/python"
+
+"Config for markdown
+
+let vim_markdown_preview_pandoc=1
+
+
