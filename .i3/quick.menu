@@ -9,7 +9,7 @@ vbox:virtualbox
 synergy:quicksynergy
 capture!:gnome-screenshot --interactive
 eog:gthumb .
-firefox:firefox
+firefox:/opt/firefox/firefox
 rdp:remmina
 vlc:vlc
 vim:gvim
