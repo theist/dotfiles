@@ -14,6 +14,7 @@
   hub = !sh -c  'echo "https://github.com/"$(git config remote.origin.url) | sed -e "s/git@github.com://" -e "s/.git$//" '
   pp = !sh -c 'git pull && git push'
 	yolo = !git commit -m \"fixup $(curl -s whatthecommit.com/index.txt)\"
+	conflicts = diff --name-only --diff-filter=U
 
 [core]
 	excludesfile = /home/carlos/.gitignore-global
