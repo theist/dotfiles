@@ -15,6 +15,7 @@
   pp = !sh -c 'git pull && git push'
 	yolo = !git commit -m \"fixup $(curl -s whatthecommit.com/index.txt)\"
 	conflicts = diff --name-only --diff-filter=U
+	fap = fetch --all -p
 
 [core]
 	excludesfile = /home/carlos/.gitignore-global
