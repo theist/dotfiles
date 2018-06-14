@@ -25,7 +25,7 @@ keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:gnome-control-center sound
 torrent:transmission-gtk
 careto:/home/carlos/bin/careto
-snes:zsnes
+arcade:emulationstation
 minecraft:minecraft
 fotos:shotwell
 exit:i3-msg exit
