@@ -21,7 +21,7 @@
 	excludesfile = /home/carlos/.gitignore-global
 	pager = less -r
 [color]
-	ui = true
+  ui = true
 [branch]
   autosetuprebase = always
 [merge]
@@ -29,7 +29,9 @@
 [mergetool]
 	keepBackup = false
 [push]
-	default = simple
+  default = simple
+[pull]
+  rebase = preserve
 [branch "master"]
   rebase = true
 [diff]
