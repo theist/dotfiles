@@ -11,5 +11,11 @@ docker network prune -f
 echo "== Prune images =="
 docker image prune -f
 
+echo "== Remove kitchen images =="
+for image in $(docker image ls --format "{{.Repository}}:{{.Tag}}" | grep -e '^[0-9a-f]\+-.*latest$'); do 
+  echo "'$image' Deleted"
+  docker rmi $image
+done
+
 echo "== Remaining Tagged Images: =="
 docker image ls --format "{{.Repository}}:{{.Tag}}"
