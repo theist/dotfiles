@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-ari = File.open("./.bash_history").readlines.reverse.map{ |x| x.chomp } 
+ari = File.open("./.bash_history").readlines.reverse.map{ |x| x.chomp }
+ari.map! { |x| x.strip }
 
 newari = []
 
@@ -34,6 +35,13 @@ ari.each do |line|
   next if line =~ /^git revert /
   next if line =~ /^bj release feature /
   next if line =~ /^bj release bugfix /
+  next if line =~ /^apt(-get)? /
+  next if line =~ /^sudo apt(-get)? /
+  next if line =~ /-vxf /
+  next if line =~ /-vxzf /
+  next if line =~ /-vxjf /
+  next if line =~ /^vlc /
+
   newari.unshift(line) unless newari.index(line)
 end
 
