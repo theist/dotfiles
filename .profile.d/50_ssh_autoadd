@@ -1,0 +1,3 @@
+# Any ssh key inked in .ssh/.autoadd/ will be added to the running agent
+
+ssh-add $HOME/.ssh/.autoadd/* 2> /dev/null
