@@ -41,6 +41,9 @@ ari.each do |line|
   next if line =~ /-vxzf /
   next if line =~ /-vxjf /
   next if line =~ /^vlc /
+  next if line =~ /^ni do /
+  next if line =~ /knife/
+  next if line =~ /^\.\//
 
   newari.unshift(line) unless newari.index(line)
 end
