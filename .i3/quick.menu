@@ -29,3 +29,5 @@ arcade:emulationstation
 minecraft:minecraft
 fotos:shotwell
 exit:i3-msg exit
+goide:/home/carlos/goland/bin/goland.sh
+pyide:/home/carlos/pycharm/bin/pycharm.sh
