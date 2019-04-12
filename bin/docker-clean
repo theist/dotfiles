@@ -19,3 +19,5 @@ done
 
 echo "== Remaining Tagged Images: =="
 docker image ls --format "{{.Repository}}:{{.Tag}}"
+echo
+docker system df --format='Left {{.TotalCount}} {{.Type}} {{.Size}}' | grep Images
