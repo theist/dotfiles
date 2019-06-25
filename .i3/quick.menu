@@ -7,7 +7,8 @@ evernote:nixnote2
 ftp:filezilla
 vbox:virtualbox
 synergy:quicksynergy
-capture!:gnome-screenshot --interactive
+capture!:flameshot gui
+screenshot:gnome-screenshot --interactive
 eog:gthumb .
 firefox:/opt/firefox/firefox
 rdp:remmina
