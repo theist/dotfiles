@@ -1,0 +1,4 @@
+#!/bin/bash
+
+for sub in $(aws sns list-subscriptions --query "Subscriptions[].SubscriptionArn" | grep arn | sed 's/"\|,/ /g'); do aws sns get-subscription-attributes --subscription-arn $sub --query "Attributes.[SubscriptionArn,RawMessageDelivery]" --output text; done | sed 's/\t/:/' | cut -f6,8 -d: | column -s: -t | grep false
+
