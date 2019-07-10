@@ -1,21 +1,16 @@
 google-chrome:google-chrome
 zoom:zoom
-dropbox:dropbox start
 hamster:hamster-time-tracker
-franz:/usr/local/bin/franz
 evernote:nixnote2
 ftp:filezilla
 vbox:virtualbox
-synergy:quicksynergy
 capture!:flameshot gui
-screenshot:gnome-screenshot --interactive
 eog:gthumb .
 firefox:/opt/firefox/firefox
 rdp:remmina
 vlc:vlc
 vim:gvim
 kazam:kazam
-zeal:zeal
 emacs:emacs
 nm-applet:nm-applet
 add-commands:gvim /home/carlos/.i3/quick.menu
@@ -25,10 +20,6 @@ files:thunar .
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:gnome-control-center sound
 torrent:transmission-gtk
-careto:/home/carlos/bin/careto
 arcade:emulationstation
 minecraft:minecraft
-fotos:shotwell
 exit:i3-msg exit
-goide:/home/carlos/goland/bin/goland.sh
-pyide:/home/carlos/pycharm/bin/pycharm.sh
