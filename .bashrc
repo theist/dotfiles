@@ -26,8 +26,6 @@ export FZF_DEFAULT_OPTS=-e
 export GOPATH=/home/carlos/go
 
 complete -C /home/carlos/bin/cap.rb -o default cap
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
