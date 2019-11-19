@@ -22,4 +22,5 @@ mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
 torrent:transmission-gtk
 arcade:emulationstation
 minecraft:minecraft
+dosbox:dbgl
 exit:i3-msg exit
