@@ -37,3 +37,5 @@
   rebase = true
 [diff]
   tool=meld
+[commit]
+  verbose = true
