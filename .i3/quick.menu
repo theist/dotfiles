@@ -17,6 +17,7 @@ add-commands:gvim /home/carlos/.i3/quick.menu
 xlock:i3lock -c 000000 -i /home/carlos/lock.png
 suspend:systemctl suspend
 files:thunar .
+scratchpad:/usr/local/bin/fromscratch
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
 torrent:transmission-gtk
