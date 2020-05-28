@@ -1,0 +1,7 @@
+#!/bin/bash
+
+NAME="ScreenGrab-$(date +%Y-%m-%d_%H%M%S).png"
+
+echo "Pasted clipboard as file $NAME"
+
+xclip -selection clipboard -t image/png -o > $NAME
