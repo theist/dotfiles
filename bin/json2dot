@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import json
+import sys
+
+def to_dotted(var, root=''):
+    if isinstance(var, dict):
+        for k in list(var.keys()):
+            for r in to_dotted(var[k], root + '.' + str(k)):
+                yield r
+    elif isinstance(var, list):
+        for i,k in enumerate(var):
+            for r in to_dotted(k, root + '.' + str(i)):
+                yield r
+    else:
+        yield [root, var]
+
+
+input = ""
+
+for line in sys.stdin:
+    input += line
+
+h = json.loads(input)
+
+for line in list(to_dotted(h)):
+        print ("%s: %s " % (line[0], line[1]))
+
+
+
