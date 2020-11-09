@@ -7,7 +7,13 @@ newari = []
 
 ari.each do |line|
   next if line =~ /^j /
+  next if line =~ /^k /
+  next if line =~ /^bj release/
+  next if line =~ /^\$/
+  next if line =~ /^>/
+  next if line =~ /^"/
   next if line =~ /^cd /
+  next if line =~ /^chmod /
   next if line =~ /^cp /
   next if line =~ /^mv /
   next if line =~ /^ack /
