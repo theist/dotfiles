@@ -4,8 +4,11 @@ ari = File.open("./.bash_history").readlines.reverse.map{ |x| x.chomp }
 ari.map! { |x| x.strip }
 
 newari = []
+counter = 0
 
 ari.each do |line|
+  begin
+  counter += 1
   next if line =~ /^j /
   next if line =~ /^k /
   next if line =~ /^bj release/
@@ -29,8 +32,10 @@ ari.each do |line|
   next if line =~ /^gcd /
   next if line =~ /^clear /
   next if line =~ /^ls /
+  next if line =~ /^vim /
+  next if line =~ /^code /
   next if line =~ /^rm /
-  next if line =~ /^pry/
+  next if line =~ /^pry /
   next if line =~ /^git co /
   next if line =~ /^sudo apt-get /
   next if line =~ /^docker rm /
@@ -52,6 +57,8 @@ ari.each do |line|
   next if line =~ /^\.\//
 
   newari.unshift(line) unless newari.index(line)
+  rescue
+  end
 end
 
 newari.each do |line|
