@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+def with_filter(command)
+    io = IO.popen(command, 'r+')
+    begin
+      stdout, $stdout = $stdout, io
+      yield rescue nil
+    ensure
+      $stdout = stdout
+    end
+    io.close_write
+    io.readlines.map(&:chomp)
+end
+
+
+ins = []
+instances = JSON::parse(`aws ec2 describe-instances`)
+
+instances["Reservations"].each do |reservation|
+    reservation["Instances"].each do |instance|
+        next if instance["State"]["Name"] != "running"
+        instance_string = "#{instance["InstanceId"]}:  "
+        tags = instance["Tags"]
+        tags.each do |tag|
+            instance_string += "#{tag["Value"]}  " if tag["Key"] == "Name"
+        end
+        %w[PrivateIpAddress PublicIpAddress PrivateDnsName PublicDnsName].each do |key|
+            instance_string += "#{instance[key]} " if instance[key]
+        end
+        ins << instance_string
+    end
+end
+
+values = ins
+
+res = with_filter('fzf --border --prompt="select instance> " --height=30%') do
+    values.each do |value|
+        puts value
+    end
+end
+
+if res && !res.empty?
+    puts "restarting #{res[0]}\n\nAre you sure?"
+    case (gets.chomp)
+    when "yes"
+        instance_id = res[0].split(/:/)[0]
+        system("aws ec2 stop-instances --instance-ids #{instance_id} --force")
+        while ! system("aws ec2 start-instances --instance-ids #{instance_id}")
+            sleep 10
+        end
+    else
+        puts "aborting"
+    end
+end
