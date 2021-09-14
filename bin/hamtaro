@@ -1,0 +1,14 @@
+#!/bin/bash
+data=`hamster current`
+total=`hamster list | grep '^Bebanjo'`
+today='0:00'
+if [[ "$total" =~ ^Bebanjo ]]; then
+    today=`echo $total | cut -d' ' -f2- | sed 's/h /:/' | sed 's/min//'`
+fi
+
+if [ "$data" = "Sin actividad" ]; then
+  echo $data
+else
+  echo $(echo $data | cut -d' ' -f3-) \($today\)
+fi
+

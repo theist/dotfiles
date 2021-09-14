@@ -178,7 +178,7 @@ client.urgent               #ffffff #00ff00 #ffffff
 ##bar.urgent                  #ffffff #00ff00 #ffffff
 
 bar {
-    status_command i3status 
+    status_command i3status | i3status-wrapper hamtaro
     workspace_buttons yes
 }
 
