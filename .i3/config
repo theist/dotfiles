@@ -12,12 +12,6 @@
 default_orientation auto
 
 
-input * {
-    xkb_layout "es"
-}
-
-input <identifier> xkb_model "pc105"
-
 
 set $mod Mod4
 
@@ -31,25 +25,26 @@ floating_modifier $mod
 
 #musicstuff
 
-bindcode 122 exec /usr/local/bin/music volume -5
-bindcode 123 exec /usr/local/bin/music volume +5
-bindcode 121 exec /usr/local/bin/music volume 0
-#bindcode 172 exec /usr/local/bin/music toggle  # pre Alsa
-bindcode 172 exec /usr/bin/amixer set Master toggle
-bindcode 171 exec /usr/local/bin/music next
-bindcode 173 exec /usr/local/bin/music prev
-bindcode 179 exec /usr/local/bin/e /usr/local/bin/music
+bind 122 exec /usr/local/bin/music volume -5
+bind 123 exec /usr/local/bin/music volume +5
+bind 121 exec /usr/local/bin/music volume 0
+#bind 172 exec /usr/local/bin/music toggle  # pre Alsa
+bind 172 exec /usr/bin/amixer set Master toggle
+bind 171 exec /usr/local/bin/music next
+bind 173 exec /usr/local/bin/music prev
+bind 179 exec /usr/local/bin/e /usr/local/bin/music
+
 
 # start a terminal
-bindcode $mod+36 exec /usr/bin/terminator
-#bindsym $mod+Shift+36 exec /usr/bin/i3-input -F 'exec %s' -P 'LCARS Run:  ' -f 'pango:Star Trek Enterprise Future 42px'
+bind $mod+36 exec /usr/bin/terminator
+bind $mod+Shift+36 exec /usr/bin/i3-input -F 'exec %s' -P 'LCARS Run:  ' -f 'pango:Star Trek Enterprise Future 42px'
 
 # kill focused window
 bindsym $mod+Shift+Q kill
-bindcode $mod+70 exec dmenu_run
+bind $mod+70 exec dmenu_run
 
 # start dmenu (a program launcher)
-bindcode $mod+68 exec dmenu_run
+bind $mod+68 exec dmenu_run
 
 
 # alternatively, you can use the cursor keys:
@@ -133,8 +128,8 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
-bindcode $mod+61 move scratchpad
-bindcode $mod+60 scratchpad show
+bind $mod+61 move scratchpad
+bind $mod+60 scratchpad show
 
 
 # resize window (you can also use the mouse for that)
