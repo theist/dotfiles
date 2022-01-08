@@ -11,8 +11,6 @@
 
 default_orientation auto
 
-
-
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -202,7 +200,6 @@ bar {
 
 #force floating windows
 
-for_window [class="Nagstamon"] floating enable
 for_window [class="Vlc"] floating enable
 for_window [class="Vlc"] sticky enable
 
