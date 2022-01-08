@@ -33,13 +33,13 @@ export TF_VAR_GCE_ACCOUNT_FILE=~/.gce_credentials.json
 
 alias gam="/home/carlos/bin/gam/gam"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/carlos/google-cloud-sdk/path.bash.inc' ]; then . '/home/carlos/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/carlos/google-cloud-sdk/completion.bash.inc' ]; then . '/home/carlos/google-cloud-sdk/completion.bash.inc'; fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
