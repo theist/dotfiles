@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+ARGV.each do |server|
+  system "bundle exec knife node delete #{server} -y"
+  system "bundle exec knife client delete #{server} -y"
+end
