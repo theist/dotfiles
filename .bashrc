@@ -10,9 +10,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-alias twitter_check='cd; t timeline -n 200 -l -r -s `tail .timeline -n 1 | cut -d" " -f1` >> .timeline ; sleep 1; /usr/sbin/logtail .timeline; cd -'
-
-
 export PATH=/home/carlos/.fzf/bin:/home/carlos/.rbenv/shims:/home/carlos/.rbenv/bin:/home/carlos/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/carlos/go/bin:/usr/local/go/bin:~/repos/github.com/bebanjo/bj/bin
 
 if [ -d "$HOME/.profile.d" ]; then
