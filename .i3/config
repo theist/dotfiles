@@ -178,13 +178,24 @@ client.urgent               #ffffff #00ff00 #ffffff
 ##bar.urgent                  #ffffff #00ff00 #ffffff
 
 bar {
-    status_command i3status | i3status-wrapper hamtaro
+    font pango:DejaVu Sans Mono, FontAwesome 8
+    status_command /home/carlos/.cargo/bin/i3status-rs /home/carlos/.config/i3status-rust/config.toml
     workspace_buttons yes
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 }
 
 bar {
+    font pango:DejaVu Sans Mono, FontAwesome 8
+    status_command /home/carlos/.cargo/bin/i3status-rs /home/carlos/.config/i3status-rust/config.toml
     mode hide
-    status_command i3status
     workspace_buttons no
     modifier $mod
 }
