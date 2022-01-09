@@ -1,3 +1,3 @@
-if ! [[ -r /tmp/forecast ]]; then /home/carlos/go/bin/wego 0 | sed '1 s/.*/La Muela, Zaragoza/'> /tmp/forecast; fi
+if ! [[ -r /tmp/forecast ]]; then /home/carlos/go/bin/wego 0 | head -n7 > /tmp/forecast; fi
 cat /tmp/forecast
 echo ""
