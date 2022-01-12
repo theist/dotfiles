@@ -178,7 +178,16 @@ client.urgent               #ffffff #00ff00 #ffffff
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 8
     status_command /home/carlos/.cargo/bin/i3status-rs /home/carlos/.config/i3status-rust/config.toml
+    mode hide
+    workspace_buttons no
+    modifier $mod
+}
+
+bar {
+    font pango:DejaVu Sans Mono, FontAwesome 8
+    status_command /home/carlos/.cargo/bin/i3status-rs /home/carlos/.config/i3status-rust/config.toml
     workspace_buttons yes
+    tray_output primary
     colors {
         separator #666666
         background #222222
@@ -188,14 +197,6 @@ bar {
         inactive_workspace #333333 #333333 #888888
         urgent_workspace #2f343a #900000 #ffffff
     }
-}
-
-bar {
-    font pango:DejaVu Sans Mono, FontAwesome 8
-    status_command /home/carlos/.cargo/bin/i3status-rs /home/carlos/.config/i3status-rust/config.toml
-    mode hide
-    workspace_buttons no
-    modifier $mod
 }
 
 #force floating windows
