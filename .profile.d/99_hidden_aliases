@@ -2,3 +2,4 @@ alias wenable='sudo rfkill unblock all; sleep 1; sudo rfkill list'
 alias vimod='vim `git status -s | grep "M" | head -n 1 | cut -d" " -f3`'
 alias h=hamster
 alias grpe=grep
+alias ghc=gh
