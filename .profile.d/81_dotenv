@@ -3,3 +3,5 @@ readenv () {
   [ -f .env ] && . .env
   set +a
 }
+
+EDITOR=vim
