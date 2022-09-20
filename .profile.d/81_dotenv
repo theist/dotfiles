@@ -4,4 +4,4 @@ readenv () {
   set +a
 }
 
-EDITOR=vim
+export EDITOR=vim
