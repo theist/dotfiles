@@ -5,6 +5,7 @@ evernote:nixnote2
 ftp:filezilla
 vbox:virtualbox
 capture!:flameshot gui
+record!:/usr/bin/simplescreenrecorder
 eog:gthumb .
 firefox:/opt/firefox/firefox
 rdp:remmina
@@ -14,7 +15,7 @@ kazam:kazam
 emacs:emacs
 nm-applet:nm-applet
 add-commands:gvim /home/carlos/.i3/quick.menu
-xlock:i3lock -c 000000 -i /home/carlos/lock.png
+xlock:i3lock-fancy -p
 suspend:systemctl suspend
 files:thunar .
 scratchpad:/usr/local/bin/fromscratch
