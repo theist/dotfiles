@@ -29,7 +29,7 @@
 	ls = log --pretty=format:\"%C(yellow)%h%Cblue [%cn] %Cred%d> %cd %Creset%s\" --decorate --date=short --graph
 	changelog = log --pretty=format:\"%C(yellow)%h%Cblue [%cn] %Creset%s\" --decorate --date=short ORIG_HEAD..
 	undo-commit = reset HEAD^
-	yolo = !git commit -m \"fixup $(curl -s whatthecommit.com/index.txt)\"
+	yolo = !git commit -m \"fixup! $(curl -s whatthecommit.com/index.txt)\"
 	conflicts = diff --name-only --diff-filter=U
   ups = !sh -c 'git commit -am \"fixup\" && git rebase -i'
 
@@ -54,3 +54,7 @@
   tool=meld
 [commit]
   verbose = true
+[init]
+  defaultBranch = main
+[rebase]
+  autoSquash = true
