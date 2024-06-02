@@ -1,14 +1,72 @@
-#!/bin/bash
-data=`hamster current`
-total=`hamster list | grep '^Bebanjo'`
-today='0:00'
-if [[ "$total" =~ ^Bebanjo ]]; then
-    today=`echo $total | cut -d' ' -f2- | sed 's/h /:/' | sed 's/min//'`
-fi
+#!/usr/bin/env python
+import datetime, re
 
-if [ "$data" = "Sin actividad" ]; then
-  echo $data
-else
-  echo $(echo $data | cut -d' ' -f3-) \($today\)
-fi
+def date_to_string(date):
+    """Return a string with the date"""
+    return "{}-{:02d}-{:02d}".format(date.year, date.month, date.day)
 
+def this_weeks_monday():
+    """Return the date of the Monday of this week"""
+    today = datetime.date.today()
+    monday = today - datetime.timedelta(days=today.weekday())
+    return date_to_string(monday)
+
+def today():
+    """Return the date of today"""
+    return date_to_string(datetime.date.today())
+
+def get_total_from_output(output):
+    """Return the total from the output"""
+    totlas_line = ""
+    for line in output.split("\n"):
+        if line.startswith("Total"):
+            totals_line = line
+    return totals_line
+
+def calculate_hours(time_str):
+    hours = 0
+    minutes = 0
+
+    # Match hours
+    hours_match = re.search(r'(\d+)h', time_str)
+    if hours_match:
+        hours = int(hours_match.group(1))
+
+    # Match minutes
+    minutes_match = re.search(r'(\d+)min', time_str)
+    if minutes_match:
+        minutes = int(minutes_match.group(1))
+    return hours + (minutes / 60.0)
+
+def run_shell_command(command):
+    """Run a shell command and return the stdout output"""
+    import subprocess
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+    output, error = process.communicate()
+    return output.decode('utf-8')
+
+def hamster_week_hours():
+    today_string = today()
+    monday_string = this_weeks_monday()
+    res = run_shell_command("hamster list {} {}".format(monday_string, today_string))
+    res = get_total_from_output(res)
+    return calculate_hours(res)
+
+def hamster_today_hours():
+    """Return the hours of hamster today"""
+    res = run_shell_command("hamster list")
+    res = get_total_from_output(res)
+    return calculate_hours(res)
+
+def hamster_activity():
+    """Return the activity of hamster today"""
+    hamster_current = run_shell_command("hamster current")
+    activity = hamster_current[:-1]
+    if activity == "Sin actividad":
+        return activity
+    activity = activity.split(" ")
+    return "{} {}".format(activity[2], activity[3])
+
+if __name__ == "__main__":
+    """Hamster line  <actividad>/<dia>/<semana>"""
+    print("{} (today: {:.2f}h|week: {:.2f}h)".format(hamster_activity(), hamster_today_hours(), hamster_week_hours()))
