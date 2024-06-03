@@ -17,6 +17,12 @@ for image in $(docker image ls --format "{{.Repository}}:{{.Tag}}" | grep -e '^[
   docker rmi $image
 done
 
+echo "== Remove ECR images =="
+for image in $(docker image ls --format "{{.Repository}}:{{.Tag}}" | grep -e '^[0-9]\+.dkr.ecr.*$'); do 
+  echo "'$image' Deleted"
+  docker rmi $image
+done
+
 echo "== Remaining Tagged Images: =="
 docker image ls --format "{{.Repository}}:{{.Tag}}"
 echo
