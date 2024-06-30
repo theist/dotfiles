@@ -1,8 +1,8 @@
 #!/bin/bash
-DMENU='dmenu -b'
+DMENU='wmenu -b'
 MENU_FILE=${HOME}/.config/quick.menu
 
-SELECTED=`cat ${MENU_FILE} | cut -d: -f1 | ${DMENU} -fn 'Retro Computer Regular 10' -nb '#000000' -nf '#003300' -sb '#000000' -sf '#00ff00'`
+SELECTED=`cat ${MENU_FILE} | cut -d: -f1 | ${DMENU} -f 'Retro Computer Regular 10' -N '#000000' -n '#003300' -s '#000000' -s '#00ff00'`
 
 COMMAND=`cat ${MENU_FILE} | grep -e ^${SELECTED}: | cut -f2 -d:`
 
