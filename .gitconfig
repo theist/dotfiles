@@ -1,11 +1,11 @@
 [pager]
-  diff = delta
+#  diff = delta
   log = delta
   reflog = delta
   show = delta
 
 [interactive]
-  diffFilter = delta --color-only
+#  diffFilter = delta --color-only
 
 [delta]
   features = line-numbers decorations
