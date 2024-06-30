@@ -1,6 +1,6 @@
 #!/bin/bash
 DMENU='dmenu -b'
-MENU_FILE=${HOME}/.i3/quick.menu
+MENU_FILE=${HOME}/.config/quick.menu
 
 SELECTED=`cat ${MENU_FILE} | cut -d: -f1 | ${DMENU} -fn 'Retro Computer Regular 10' -nb '#000000' -nf '#003300' -sb '#000000' -sf '#00ff00'`
 
