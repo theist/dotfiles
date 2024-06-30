@@ -43,3 +43,5 @@ if [ -f '/home/carlos/google-cloud-sdk/path.bash.inc' ]; then . '/home/carlos/go
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/carlos/google-cloud-sdk/completion.bash.inc' ]; then . '/home/carlos/google-cloud-sdk/completion.bash.inc'; fi
+export PATH=$PATH:$HOME/.tfenv/bin
+export PATH="${HOME}/.pkenv/bin:$PATH"
