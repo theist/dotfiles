@@ -14,15 +14,12 @@ vim:gvim
 kazam:kazam
 emacs:emacs
 nm-applet:nm-applet
-add-commands:gvim /home/carlos/.i3/quick.menu
+telegram:snap run telegram-desktop
+add-commands:gvim /home/carlos/.config/quick.menu
 xlock:i3lock-fancy -p
 suspend:systemctl suspend
 files:thunar .
-scratchpad:/usr/local/bin/fromscratch
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
-torrent:transmission-gtk
-arcade:emulationstation
-minecraft:minecraft
 dosbox:dbgl
 exit:i3-msg exit
