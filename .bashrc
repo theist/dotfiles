@@ -45,3 +45,10 @@ if [ -f '/home/carlos/google-cloud-sdk/path.bash.inc' ]; then . '/home/carlos/go
 if [ -f '/home/carlos/google-cloud-sdk/completion.bash.inc' ]; then . '/home/carlos/google-cloud-sdk/completion.bash.inc'; fi
 export PATH=$PATH:$HOME/.tfenv/bin
 export PATH="${HOME}/.pkenv/bin:$PATH"
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
