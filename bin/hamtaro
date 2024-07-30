@@ -11,6 +11,18 @@ def this_weeks_monday():
     monday = today - datetime.timedelta(days=today.weekday())
     return date_to_string(monday)
 
+def last_weeks_monday():
+    """Return the date of the Monday of last week"""
+    today = datetime.date.today()
+    monday = today - datetime.timedelta(days=today.weekday() + 7)
+    return date_to_string(monday)
+
+def last_weeks_sunday():
+    """Return the date of the Sunday of last week"""
+    today = datetime.date.today()
+    sunday = today - datetime.timedelta(days=today.weekday() + 1)
+    return date_to_string(sunday)
+
 def today():
     """Return the date of today"""
     return date_to_string(datetime.date.today())
@@ -79,11 +91,16 @@ def hamster_activity():
     activity = activity.split(" ")
     return "{} {}".format(" ".join(activity[2:-1]), activity[-1])
 
+
 def do_summary():
     """Print a summary of the hamster activity"""
-    import sys
     today_string = today()
     monday_string = this_weeks_monday()
+
+    if check_args("previous") or check_args("prev") or check_args("last"):
+        today_string = last_weeks_sunday()
+        monday_string = last_weeks_monday()
+
     res = run_shell_command("hamster list {} {}".format(monday_string, today_string))
     lines = res.split("\n")
     lines_per_date = {}
@@ -107,6 +124,9 @@ def do_summary():
 def check_args(arg):
     """Check if the argument is in the arguments"""
     import sys
+    if arg in sys.argv:
+        sys.argv.remove(arg)
+        return True
     return arg in sys.argv
 
 if __name__ == "__main__":
