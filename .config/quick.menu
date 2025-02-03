@@ -7,7 +7,7 @@ vbox:virtualbox
 capture!:flameshot gui
 record!:/usr/bin/simplescreenrecorder
 eog:gthumb .
-firefox:/opt/firefox/firefox
+firefox:firefox-devedition
 rdp:remmina
 vlc:vlc
 vim:gvim
@@ -22,4 +22,5 @@ files:thunar .
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
 dosbox:dbgl
+obsidian:obsidian
 exit:i3-msg exit
