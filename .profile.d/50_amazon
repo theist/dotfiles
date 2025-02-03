@@ -1,5 +1,5 @@
-export EC2_URL=https://ec2.eu-west-1.amazonaws.com
-export EC2_REGION=eu-west-1
+#export EC2_URL=https://ec2.eu-west-1.amazonaws.com
+#export EC2_REGION=eu-west-1
 complete -C '/usr/local/bin/aws_completer' aws
 PATH=$PATH:/home/carlos/.local/bin
-complete -C '/home/carlos/.local/bin/eb_completion.bash' eb
+#complete -C '/home/carlos/.local/bin/eb_completion.bash' eb
