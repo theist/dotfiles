@@ -27,7 +27,6 @@ complete -C /home/carlos/bin/cap.rb -o default cap
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export ANSIBLE_INVENTORY=~/ansible_hosts
 export GCE_ACCOUNT_FILE=~/.gce_credentials.json
 export TF_VAR_GCE_ACCOUNT_FILE=~/.gce_credentials.json
 
