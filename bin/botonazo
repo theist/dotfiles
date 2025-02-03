@@ -23,6 +23,7 @@ instances["Reservations"].each do |reservation|
         next if instance["State"]["Name"] != "running"
         instance_string = "#{instance["InstanceId"]}:  "
         tags = instance["Tags"]
+        next unless tags
         tags.each do |tag|
             instance_string += "#{tag["Value"]}  " if tag["Key"] == "Name"
         end
