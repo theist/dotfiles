@@ -1,4 +1,6 @@
 #Vim swap files
+.env
+.aider*
 .*.sw?
 make.sh
 .rbenv-gemsets
@@ -15,3 +17,4 @@ TODOs.org
 .idea
 maintenance.sh
 attic
+*.keepout
