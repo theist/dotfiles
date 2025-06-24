@@ -1,3 +1,0 @@
-# Init BeBanjo toolbelt
-eval "$(/home/carlos/repos/github.com/bebanjo/bj/bin/bj init -)"
-
