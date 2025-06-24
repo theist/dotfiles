@@ -1,19 +1,14 @@
-opera:opera
 google-chrome:google-chrome
-zoom:zoom
-hamster:hamster-time-tracker
-evernote:nixnote2
 ftp:filezilla
 vbox:virtualbox
 capture!:flameshot gui
 record!:/usr/bin/simplescreenrecorder
 eog:gthumb .
-firefox:firefox-devedition
+firefox:/opt/firefox/firefox
 rdp:remmina
 vlc:vlc
 vim:gvim
 kazam:kazam
-emacs:emacs
 nm-applet:nm-applet
 telegram:snap run telegram-desktop
 add-commands:gvim /home/carlos/.config/quick.menu
@@ -22,6 +17,5 @@ suspend:systemctl suspend
 files:thunar .
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
-dosbox:dbgl
 obsidian:obsidian
 exit:i3-msg exit
