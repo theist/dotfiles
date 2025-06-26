@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+source ~/.krc
+
+CLUSTER_ALIAS=$1
+ROLE_ALIAS=${2:-default}
+
+if [[ "${CLUSTER_ALIAS}" == "CURRENT" ]]; then
+  kubectl config current-context
+  exit
+fi
+
+if [[ -z "${CLUSTERS[$CLUSTER_ALIAS]}" ]]; then
+  echo "Cluster alias '$CLUSTER_ALIAS' not found."
+  exit 1
+fi
+
+if [[ -z "${ROLES[$ROLE_ALIAS]}" ]]; then
+  echo "Role alias '$ROLE_ALIAS' not found."
+  exit 2
+fi
+
+IFS=':' read -r CLUSTER_NAME REGION <<< "${CLUSTERS[$CLUSTER_ALIAS]}"
+ROLE_ARN="${ROLES[$ROLE_ALIAS]}"
+
+echo "Switching to cluster: $CLUSTER_NAME ($REGION) with role: $ROLE_ALIAS"
+aws eks update-kubeconfig \
+  --name "$CLUSTER_NAME" \
+  --region "$REGION" \
+  --role-arn "$ROLE_ARN"
