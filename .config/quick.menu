@@ -10,7 +10,7 @@ vlc:vlc
 vim:gvim
 kazam:kazam
 nm-applet:nm-applet
-telegram:snap run telegram-desktop
+telegram:flatpak run org.telegram.desktop
 add-commands:gvim /home/carlos/.config/quick.menu
 xlock:i3lock-fancy -p
 suspend:systemctl suspend
