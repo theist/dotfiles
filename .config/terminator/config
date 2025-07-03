@@ -8,6 +8,7 @@
 [keybindings]
 [profiles]
   [[default]]
+    urgent_bell = True
     font = Iosevka Theist Expanded 14
     show_titlebar = False
     scrollbar_position = hidden
