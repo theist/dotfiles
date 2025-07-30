@@ -28,6 +28,15 @@ override_git_prompt_colors() {
     RUBY_PROMPT='{$(rbenv version-name)}'
   fi
 
+  KUBE_PROMPT='⎈  dunno?'
+  if test -f ~/.current-kube; then
+    KUBE_PROMPT=`cat ~/.current-kube`
+  fi
+
+  TERRA_PROMPT=''
+  if test -f .terraform/environment; then
+    TERRA_PROMPT="𜲌 tf $(cat .terraform-version)($(cat .terraform/environment))"
+  fi
 
   #Overrides the prompt_callback function used by bash-git-prompt
   function prompt_callback {
@@ -53,7 +62,7 @@ override_git_prompt_colors() {
   GIT_PROMPT_STASHED=" ${BoldCyan}⚑ "    # the number of stashed files/dir
   GIT_PROMPT_CLEAN=" ${BoldGreen}✔"      # a colored flag indicating a "clean" repo
 
-  local gp_end="\n${Red}${RUBY_PROMPT} _LAST_COMMAND_INDICATOR_${White}${Time12a}${ResetColor}"
+  local gp_end="\n${Blue}$KUBE_PROMPT${Yellow}$TERRA_PROMPT${Red}${RUBY_PROMPT} _LAST_COMMAND_INDICATOR_${White}${Time12a}${ResetColor}"
 
   GIT_PROMPT_START_USER=""
   GIT_PROMPT_END_USER="${gp_end} $ "
