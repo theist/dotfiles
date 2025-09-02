@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+
+require "json"
+require "colorize"
+
+def info(msg)
+  puts msg.colorize(:light_blue)
+end
+
+def warn(msg)
+  puts msg.colorize(:yellow)
+end
+
+def error(msg)
+  puts msg.colorize(:red)
+end
+
+def success(msg)
+  puts msg.colorize(:green)
+end
+
+## Load all helm repo packages
+existing_packages = {}
+
+helm_repos_list = JSON.load(`helm repo list -o json`)
+helm_repos_list.each do |repo|
+  info "Checking repo #{repo["name"]}"
+  packages = JSON.load(`helm search repo #{repo["name"]} -o json`)
+  packages.each do |package|
+    real_repo = package["name"].split(/\//)[0]
+    package["repo"] = real_repo
+    package["chart"] = package["name"].split(/\//)[1..-1].join("/")
+    existing_packages[package["repo"]] ||= {}
+    existing_packages[package["repo"]][package["chart"]] = package
+  end
+end
+
+existing_packages.each do |repo, packages|
+  success "Found #{packages.length} packages in #{repo}"
+end
+
+helm_installed = JSON.load(`helm list -A -o json`)
+
+if helm_installed.empty?
+  error "No helm releases found"
+  exit 0
+end
+
+def find_package(name, packages)
+  packages.each do |repo, charts|
+    charts.each do |chart, pkg|
+      return pkg if chart == name
+    end
+  end
+  nil
+end
+
+puts "\nHelm Releases Status:\n".colorize(:light_white).underline
+
+helm_installed.each do |release|
+  chart_name = release["chart"].split("-")[0..-2].join("-")
+  chart_version = release["chart"].split("-")[-1]
+  the_package = find_package(chart_name, existing_packages)
+
+  puts "Release: #{release["name"].colorize(:cyan)} | Namespace: #{release["namespace"].colorize(:light_magenta)}"
+  puts "  Chart: #{chart_name.colorize(:light_white)}"
+  puts "  Installed Version: #{chart_version.colorize(:yellow)} | App Version: #{release["app_version"].colorize(:yellow)}"
+
+  if the_package.nil?
+    error "  Package not found in repos"
+  else
+    latest_version = the_package["version"]
+    latest_app_version = the_package["app_version"]
+    puts "  Latest Version: #{latest_version.colorize(:green)} | Latest App Version: #{latest_app_version.colorize(:green)}"
+    if chart_version != latest_version
+      warn "  Upgrade available!".colorize(:red)
+    else
+      success "  Up-to-date".colorize(:green)
+    end
+  end
+  puts "-" * 50
+end
