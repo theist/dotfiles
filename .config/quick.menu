@@ -18,4 +18,5 @@ files:thunar .
 keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
 obsidian:obsidian
+vpn_toggle:/home/carlos/bin/toggle_vpn
 exit:i3-msg exit
