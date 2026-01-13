@@ -1,0 +1,3 @@
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+eval $(kubectl completion bash)
