@@ -5,7 +5,9 @@ capture!:flameshot gui
 record!:/usr/bin/simplescreenrecorder
 eog:gthumb .
 firefox:/opt/firefox/firefox
+mail:/opt/thunderbird/thunderbird
 rdp:remmina
+db_ui:dbeaver
 vlc:vlc
 vim:gvim
 kazam:kazam
@@ -19,4 +21,6 @@ keepass:GTK2_RC_FILES=/usr/share/themes/ThinIce/gtk-2.0/gtkrc keepass2
 mixer:XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound
 obsidian:obsidian
 vpn_toggle:/home/carlos/bin/toggle_vpn
+heroic:heroic
 exit:i3-msg exit
+
