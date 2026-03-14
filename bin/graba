@@ -1,0 +1,32 @@
+#!/bin/bash
+
+PIDFILE="/tmp/graba.pid"
+RECORDINGS_DIR="/home/carlos/Documentos"
+
+if [ "$1" = "stop" ]; then
+    if [ -f "$PIDFILE" ]; then
+        kill $(cat "$PIDFILE") 2>/dev/null
+        rm "$PIDFILE"
+        echo "Grabación detenida"
+    else
+        echo "No hay grabación en curso"
+    fi
+    exit 0
+fi
+
+if [ -f "$PIDFILE" ]; then
+    echo "Ya hay una grabación en curso"
+    exit 1
+fi
+
+mkdir -p "$RECORDINGS_DIR"
+FILENAME="$RECORDINGS_DIR/grabacion_$(date +%Y%m%d_%H%M%S).wav"
+
+ffmpeg -f pulse -i alsa_output.pci-0000_00_1f.3.analog-stereo.monitor \
+       -f pulse -i alsa_input.usb-Creative_Technology_Ltd._Creative_Live__Cam_Sync_1080p_V2_Creative_Live__Cam_Sync_1080p_V2_Audio-02.analog-stereo \
+       -filter_complex amix=inputs=2:duration=longest \
+       -ac 2 -ar 48000 "$FILENAME" &
+
+echo $! > "$PIDFILE"
+echo "Grabación iniciada: $FILENAME"
+echo "Para detener: graba stop"
