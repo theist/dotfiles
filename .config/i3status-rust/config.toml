@@ -8,16 +8,8 @@ icons = "awesome4"
 
 [[block]]
 block = "custom"
-command = ''' /usr/local/bin/hamtaro '''
+command = '''  cat /home/carlos/.current-kube '''
 interval = 10
-
-[[block]]
-block = "custom"
-command = ''' /home/carlos/bin/i3_aws_creds  '''
-interval = 60
-[[block.click]]
-button = "left"
-action = "/usr/local/bin/aws sso login"
 
 [[block]]
 block = "disk_space"
