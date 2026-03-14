@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Get current network segment from default route interface
+INTERFACE=$(ip route | grep default | awk '{print $5}' | head -1)
+NETWORK=$(ip route | grep "$INTERFACE" | grep -v default | awk '{print $1}' | head -1)
+
+if [ -z "$NETWORK" ]; then
+    echo "Could not determine network segment"
+    exit 1
+fi
+
+echo "Scanning network: $NETWORK"
+echo "Looking for Raspberry Pi devices..."
+echo
+
+# Raspberry Pi Foundation MAC prefixes
+RPI_MACS=("b8:27:eb" "dc:a6:32" "e4:5f:01" "28:cd:c1" "d8:3a:dd" "dc:a6:32")
+
+# Scan network with ARP to get MAC addresses
+nmap -sn "$NETWORK" >/dev/null 2>&1
+
+# Check neighbor table for Raspberry Pi MACs
+ip neigh | while read line; do
+    IP=$(echo "$line" | awk '{print $1}')
+    MAC=$(echo "$line" | awk '{print $5}')
+    
+    if [[ "$MAC" =~ ^[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}$ ]]; then
+        MAC_PREFIX=$(echo "$MAC" | cut -d: -f1-3)
+        
+        for rpi_mac in "${RPI_MACS[@]}"; do
+            if [[ "$MAC_PREFIX" == "$rpi_mac" ]]; then
+                echo "Found Raspberry Pi: $IP ($MAC)"
+                break
+            fi
+        done
+    fi
+done
