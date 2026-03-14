@@ -12,7 +12,7 @@
 	yolo = !git commit -m \"fixup! $(curl -s whatthecommit.com/index.txt)\"
 	conflicts = diff --name-only --diff-filter=U
   ups = !sh -c 'git commit -am \"fixup\" && git rebase -i'
-  ciai = !sh -c 'q chat \"please review staged files and commit them with a meaningful title and, if the changes are complex, three to five lines in description that states what modified lines does\"'
+  ciai = !sh -c 'q chat \"Review staged files and commit with a meaningful title. Add a brief description only if the changes are complex, focusing on the key functionality or purpose - keep it concise and relevant.\"'
 [core]
 	excludesfile = /home/carlos/.gitignore-global
 	pager = less -r
