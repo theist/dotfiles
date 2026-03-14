@@ -2,6 +2,7 @@ google-chrome:google-chrome
 ftp:filezilla
 vbox:virtualbox
 capture!:flameshot gui
+capturedelay!:flameshot gui -d 5000
 record!:/usr/bin/simplescreenrecorder
 eog:gthumb .
 firefox:/opt/firefox/firefox
