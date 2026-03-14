@@ -1,0 +1,15 @@
+echo "kube setup"
+
+update_kube_ns_file() {
+    echo 󱃾  $(/usr/bin/kubectx -c):$(/usr/bin/kubens -c) > /home/carlos/.current-kube
+}
+
+kubens() {
+    /usr/bin/kubens "$@" || return $?
+    update_kube_ns_file
+}
+
+kubectx() {
+    /usr/bin/kubectx "$@" || return $?
+    update_kube_ns_file
+}
