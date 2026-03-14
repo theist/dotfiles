@@ -189,7 +189,7 @@ bindsym $mod+r mode "resize"
 
 # fonts
 #font -*-clean-*-*-*--*-*-*-*-*-*-iso10646-1
-font pango:Iosevka Theist Extended 8
+font pango:Retro Computer 7
 #titlebar_padding 15 1
 #titlebar_border_thickness 0
 
