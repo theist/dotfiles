@@ -1,3 +1,6 @@
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 eval $(kubectl completion bash)
+alias k=kubectl
+alias kn=kubens
+alias kx=kubectx
