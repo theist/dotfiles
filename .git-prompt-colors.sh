@@ -35,7 +35,7 @@ override_git_prompt_colors() {
 
   TERRA_PROMPT=''
   if test -f .terraform/environment; then
-    TERRA_PROMPT="𜲌 tf $(cat .terraform-version)($(cat .terraform/environment))"
+    TERRA_PROMPT="  $(cat .terraform-version)($(cat .terraform/environment))"
   fi
 
   #Overrides the prompt_callback function used by bash-git-prompt
@@ -53,14 +53,14 @@ override_git_prompt_colors() {
   GIT_PROMPT_PREFIX=""                 # start of the git info string
   GIT_PROMPT_SUFFIX=""                 # the end of the git info string
   GIT_PROMPT_SEPARATOR=""              # separates each item
-  GIT_PROMPT_STAGED=" ${Green}●"           # the number of staged files/directories
-  GIT_PROMPT_CONFLICTS=" ${BoldRed}✖"       # the number of files in conflict
-  GIT_PROMPT_CHANGED=" ${BoldBlue}✚"        # the number of changed files
+  GIT_PROMPT_STAGED=" ${Green}"           # the number of staged files/directories
+  GIT_PROMPT_CONFLICTS=" ${BoldRed}"        # the number of files in conflict
+  GIT_PROMPT_CHANGED=" ${BoldBlue}"        # the number of changed files
 
   # GIT_PROMPT_REMOTE=" "                 # the remote branch name (if any) and the symbols for ahead and behind
-  GIT_PROMPT_UNTRACKED=" ${Cyan}…"       # the number of untracked files/dirs
-  GIT_PROMPT_STASHED=" ${BoldCyan}⚑ "    # the number of stashed files/dir
-  GIT_PROMPT_CLEAN=" ${BoldGreen}✔"      # a colored flag indicating a "clean" repo
+  GIT_PROMPT_UNTRACKED=" ${Cyan}󰇘"       # the number of untracked files/dirs
+  GIT_PROMPT_STASHED=" ${BoldCyan} "    # the number of stashed files/dir
+  GIT_PROMPT_CLEAN=" ${BoldGreen}󰄬"      # a colored flag indicating a "clean" repo
 
   local gp_end="\n${Blue}$KUBE_PROMPT${Yellow}$TERRA_PROMPT${Red}${RUBY_PROMPT} _LAST_COMMAND_INDICATOR_${White}${Time12a}${ResetColor}"
 
