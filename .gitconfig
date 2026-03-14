@@ -16,6 +16,8 @@
 [core]
 	excludesfile = /home/carlos/.gitignore-global
 	pager = less -r
+        editor = /usr/bin/vim
+        whitespace = trailing-space,-space-before-tab,tab-in-indent,cr-at-eol
 [color]
   ui = true
 [branch]
@@ -26,6 +28,7 @@
 	keepBackup = false
 [push]
   default = simple
+        autoSetupRemote = true
 [pull]
   rebase = preserve
 [branch "master"]
@@ -49,3 +52,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[apply]
+        whitespace = fix
